@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Conversion Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .image-box {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .image-container .col-md-5 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Original and Transformed Image</h2>
+        <div class="image-box">
+            <div class="image-container">
+                <div class="col-md-5">
+                    <h4 class="text-center">Original Image</h4>
+                    <img id="originalImage" class="img-fluid" alt="Original Image">
+                </div>
+                <div class="col-md-5">
+                    <h4 class="text-center">Transformed Image</h4>
+                    <img id="transformedImage" class="img-fluid" alt="Transformed Image">
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="index.html" class="btn btn-primary btn-lg">Go Back</a>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Get images from sessionStorage
+            const originalImage = sessionStorage.getItem('originalImage');
+            const transformedImage = sessionStorage.getItem('transformedImage');
+
+            // Set images to the img elements
+            if (originalImage) {
+                document.getElementById('originalImage').src = originalImage;
+            }
+            if (transformedImage) {
+                document.getElementById('transformedImage').src = transformedImage;
+            }
+        };
+    </script>
+</body>
+</html>
